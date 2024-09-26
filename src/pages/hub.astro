@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+---
+
+<BaseLayout title="InnovPower Hub">
+  <!-- Inclure le Header -->
+  <Header />
+
+  <!-- Section principale du Hub -->
+  <section class="pt-64 pb-20 bg-white text-gray-900 px-4 md:px-8">
+    <div class="container mx-auto max-w-3xl text-center">
+      <h2 class="text-4xl font-bold mb-8">Bienvenue sur InnovPower Hub</h2>
+      <p class="text-lg font-light mb-6 max-w-2xl mx-auto">
+        InnovPower Hub est un espace client exclusif où vous pouvez suivre vos projets, consulter vos factures, et collaborer avec notre équipe de développement. Connectez-vous ou créez un compte pour accéder à votre tableau de bord personnalisé.
+      </p>
+      <div class="mt-12 flex justify-center space-x-4">
+        <a href="/login" class="bg-black text-white px-6 py-3 rounded hover:bg-custom-gold hover:text-black transition duration-300">
+          Se Connecter
+        </a>
+        <a href="/register" class="bg-black text-white px-6 py-3 rounded hover:bg-custom-gold hover:text-black transition duration-300">
+          Inscription
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section avec avantages -->
+  <section class="py-20 bg-white text-gray-900 px-4 md:px-8">
+    <div class="container mx-auto max-w-4xl text-center">
+      <h3 class="text-3xl font-bold mb-8">Pourquoi utiliser InnovPower Hub ?</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Avantage 1 -->
+        <div class="p-6 bg-white rounded-lg shadow-2xl hover:shadow-black transition duration-300">
+          <div class="mb-4">
+            <img src="/images/project-management-icon.svg" alt="Gestion de projet" class="w-16 h-16 mx-auto">
+          </div>
+          <h4 class="text-2xl font-semibold mb-2">Suivi des projets</h4>
+          <p class="text-sm">
+            Gardez un œil sur l'avancement de vos projets, accédez aux fichiers échangés et restez à jour avec notre équipe.
+          </p>
+        </div>
+        <!-- Avantage 2 -->
+        <div class="p-6 bg-white rounded-lg shadow-2xl hover:shadow-black transition duration-300">
+          <div class="mb-4">
+            <img src="/images/billing-icon.svg" alt="Facturation" class="w-16 h-16 mx-auto">
+          </div>
+          <h4 class="text-2xl font-semibold mb-2">Facturation simplifiée</h4>
+          <p class="text-sm">
+            Consultez vos factures en temps réel, gérez vos paiements, et gardez une trace de votre historique de facturation.
+          </p>
+        </div>
+        <!-- Avantage 3 -->
+        <div class="p-6 bg-white rounded-lg shadow-2xl hover:shadow-black transition duration-300">
+          <div class="mb-4">
+            <img src="/images/collaboration-icon.svg" alt="Collaboration" class="w-16 h-16 mx-auto">
+          </div>
+          <h4 class="text-2xl font-semibold mb-2">Collaboration en direct</h4>
+          <p class="text-sm">
+            Participez activement à votre projet en communiquant directement avec notre équipe, en temps réel.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

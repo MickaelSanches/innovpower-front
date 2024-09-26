@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+---
+
+<BaseLayout title="Dashboard">
+  <!-- Inclure le Header -->
+  <Header />
+
+  <!-- Section principale du Dashboard -->
+  <section class="pt-64 pb-20 bg-gray-900 text-white px-4 md:px-8">
+    <div class="container mx-auto max-w-5xl">
+      <h2 class="text-4xl font-bold mb-8 text-center">Bienvenue sur votre Dashboard</h2>
+      <p class="text-lg font-light mb-6 text-center">
+        Ici, vous pouvez consulter vos projets, vos factures et suivre l'évolution de vos commandes.
+      </p>
+
+      <!-- Formulaire d'ajout de projet -->
+      <div class="mt-12 bg-gray-800 rounded-lg shadow-lg p-6">
+        <h3 class="text-2xl font-semibold mb-4">Ajouter un projet</h3>
+        <form action="/api/projects" method="POST" class="space-y-4">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-300">Nom du projet</label>
+            <input type="text" id="name" name="name" class="mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+          </div>
+          <div>
+            <label for="status" class="block text-sm font-medium text-gray-300">Statut</label>
+            <input type="text" id="status" name="status" class="mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+          </div>
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 w-full">Ajouter le projet</button>
+        </form>
+      </div>
+
+      <!-- Section pour afficher les projets existants -->
+      <div class="mt-12 bg-gray-800 rounded-lg shadow-lg p-6">
+        <h3 class="text-2xl font-semibold mb-4">Vos Projets</h3>
+        <table class="min-w-full table-auto">
+          <thead class="bg-gray-700">
+            <tr>
+              <th class="px-4 py-2">ID Projet</th>
+              <th class="px-4 py-2">Nom</th>
+              <th class="px-4 py-2">Statut</th>
+              <th class="px-4 py-2">Date de création</th>
+              <th class="px-4 py-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="bg-gray-600">
+            <!-- Exemple de ligne de projet -->
+            <tr>
+              <td class="border px-4 py-2">001</td>
+              <td class="border px-4 py-2">Projet InnovPower</td>
+              <td class="border px-4 py-2">En cours</td>
+              <td class="border px-4 py-2">23/09/2024</td>
+              <td class="border px-4 py-2">
+                <!-- Ajouter des boutons pour modifier et supprimer -->
+                <button class="text-yellow-500 hover:underline">Modifier</button>
+                <button class="text-red-500 hover:underline ml-4">Supprimer</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
