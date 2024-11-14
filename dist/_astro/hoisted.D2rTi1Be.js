@@ -1,0 +1,1 @@
+import"./hoisted.CjCQvWA7.js";const s=new IntersectionObserver(e=>{e.forEach(r=>{if(r.isIntersecting){const t=r.target;t.style.opacity="1",t.style.transform="translateY(0)"}})},{threshold:.2});document.querySelectorAll(".service-card").forEach(e=>s.observe(e));

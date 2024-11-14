@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){const t=document.getElementById("mobile-menu-button"),e=document.getElementById("mobile-menu"),n=document.querySelector(".hamburger");t&&e&&n&&t.addEventListener("click",()=>{e.classList.toggle("opacity-0"),e.classList.toggle("pointer-events-none"),e.classList.toggle("opacity-100"),n.classList.toggle("open")})});

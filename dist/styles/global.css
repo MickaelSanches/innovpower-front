@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #ffffff;
+    /* Fond noir pour un style élégant */
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+h1,
+h2,
+h3,
+p,
+a {
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #FFD700;
+}
+
+.btn-outline {
+    position: relative;
+    padding: 1.2rem 2rem; /* Ajustement en rem pour être plus flexible */
+    background: rgba(255, 255, 255, 0.1); /* Fond transparent légèrement blanc */
+    backdrop-filter: blur(10px); /* Effet vitreux avec un flou */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilité pour Safari */
+    color: white;
+    font-size: 1.5rem; /* Font-size ajusté en rem pour s'adapter */
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transition: color 0.3s ease, background 0.3s ease; /* Ajout de la transition pour le fond */
+    border-radius: 8px; /* Bords arrondis pour l'effet vitreux */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Légère ombre pour donner de la profondeur */
+  }
+  
+  .btn-outline::before, .btn-outline::after {
+    content: '';
+    position: absolute;
+    border: 2px solid white;
+    width: 0;
+    height: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline::before {
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    border-right: none;
+    border-bottom: none;
+  }
+  
+  .btn-outline::after {
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    border-left: none;
+    border-top: none;
+  }
+  
+  .btn-outline:hover::before {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .btn-outline:hover::after {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+  }
+  
+/* Taille réduite sur tablette (md) */
+@media (max-width: 768px) {
+  .btn-outline {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+footer {
+  margin-top: auto;
+}
+
+footer .container {
+  max-width: 1200px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin-bottom: 8px;
+}
+
+footer h3 {
+  font-weight: bold;
+}
+
+footer a {
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #FFD700;
+}
