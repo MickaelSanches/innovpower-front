@@ -18,7 +18,7 @@ import Header from '../components/Header.astro';
       <!-- Formulaire d'ajout de projet -->
       <div class="mt-12 bg-gray-800 rounded-lg shadow-lg p-6">
         <h3 class="text-2xl font-semibold mb-4">Ajouter un projet</h3>
-        <form action="/api/projects" method="POST" class="space-y-4">
+        <form action="/projects" method="POST" id="projectForm" class="space-y-4">
           <div>
             <label for="name" class="block text-sm font-medium text-gray-300">Nom du projet</label>
             <input type="text" id="name" name="name" class="mt-1 block w-full bg-gray-700 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
@@ -44,22 +44,130 @@ import Header from '../components/Header.astro';
               <th class="px-4 py-2">Actions</th>
             </tr>
           </thead>
-          <tbody class="bg-gray-600">
-            <!-- Exemple de ligne de projet -->
-            <tr>
-              <td class="border px-4 py-2">001</td>
-              <td class="border px-4 py-2">Projet InnovPower</td>
-              <td class="border px-4 py-2">En cours</td>
-              <td class="border px-4 py-2">23/09/2024</td>
-              <td class="border px-4 py-2">
-                <!-- Ajouter des boutons pour modifier et supprimer -->
-                <button class="text-yellow-500 hover:underline">Modifier</button>
-                <button class="text-red-500 hover:underline ml-4">Supprimer</button>
-              </td>
-            </tr>
+          <tbody class="bg-gray-600" id="projectTable">
+            <!-- Projets ajoutés dynamiquement -->
           </tbody>
         </table>
       </div>
     </div>
   </section>
+
+  <!-- Scripts pour gérer les projets -->
+  <script>
+    interface Projet {
+      id: number;
+      name: string;
+      status: string;
+      created_at: string;
+    }
+
+    // Fonction pour ajouter un projet à la liste dans le tableau
+    function ajouterProjetALaListe(projet: Projet) {
+      const tbody = document.getElementById('projectTable') as HTMLTableSectionElement | null;
+
+      if (tbody) {  // Vérifier que tbody n'est pas null
+        const tr = document.createElement('tr');
+
+        tr.innerHTML = `
+          <td class="border px-4 py-2">${projet.id}</td>
+          <td class="border px-4 py-2">${projet.name}</td>
+          <td class="border px-4 py-2">${projet.status}</td>
+          <td class="border px-4 py-2">${new Date(projet.created_at).toLocaleDateString()}</td>
+          <td class="border px-4 py-2">
+            <button class="text-yellow-500 hover:underline" onclick="modifierProjet(${projet.id})">Modifier</button>
+            <button class="text-red-500 hover:underline ml-4" onclick="supprimerProjet(${projet.id})">Supprimer</button>
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+      }
+    }
+
+    // Charger les projets existants lors du chargement de la page
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const response = await fetch('/projects', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}` // Inclure le token JWT si nécessaire
+          }
+        });
+
+        if (!response.ok) {
+          alert('Erreur lors de la récupération des projets');
+          return;
+        }
+
+        const projets: Projet[] = await response.json();
+        projets.forEach(projet => ajouterProjetALaListe(projet));
+      } catch (error) {
+        console.error('Erreur:', error);
+        alert('Une erreur est survenue');
+      }
+    });
+
+    // Formulaire d'ajout de projet
+    const projectForm = document.getElementById('projectForm') as HTMLFormElement | null;
+
+    if (projectForm) {
+      projectForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(projectForm);
+        const data = Object.fromEntries(formData);
+
+        try {
+          const response = await fetch('/projects', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${localStorage.getItem('token')}` // Inclure le token JWT si nécessaire
+            },
+            body: JSON.stringify(data)
+          });
+
+          if (!response.ok) {
+            alert('Erreur lors de l\'ajout du projet');
+            return;
+          }
+
+          const result: Projet = await response.json();
+
+          // Mettre à jour la liste des projets avec le nouveau projet ajouté
+          ajouterProjetALaListe(result);
+          projectForm.reset(); // Resetter le formulaire après ajout
+        } catch (error) {
+          console.error('Erreur:', error);
+          alert('Une erreur est survenue');
+        }
+      });
+    }
+
+    // Fonction pour supprimer un projet
+    async function supprimerProjet(id: number) {
+      try {
+        const response = await fetch(`/projects/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+
+        if (response.ok) {
+          // Supprimer le projet de la liste
+          const row = document.querySelector(`tr[data-id="${id}"]`);
+          if (row) row.remove();
+        } else {
+          alert('Erreur lors de la suppression du projet');
+        }
+      } catch (error) {
+        console.error('Erreur:', error);
+        alert('Une erreur est survenue');
+      }
+    }
+
+    // Fonction pour modifier un projet (à implémenter plus tard)
+    function modifierProjet(id: number) {
+      alert('Fonction de modification à implémenter');
+    }
+  </script>
 </BaseLayout>
