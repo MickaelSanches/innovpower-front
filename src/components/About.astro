@@ -1,23 +1,97 @@
-<section id="about" class="py-20 bg-gray-900 text-white">
+<section id="about" class="py-20 bg-white text-black">
   <div class="container mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-8">À propos de nous</h2>
-    <p class="text-lg font-light mb-6 max-w-3xl mx-auto">
-      Avec plus de 10 ans d’expérience dans le commerce et l’entrepreneuriat,
-      InnovPower est né pour répondre aux besoins de solutions Web3 innovantes.
-      Nous vous accompagnons dans la réalisation de vos projets grâce à notre
-      expertise dans les nouvelles technologies et notre compréhension des
-      enjeux commerciaux.
+    <!-- Titre avec dégradé constant et animation machine à écrire centrée -->
+    <div class="inline-block overflow-hidden">
+    <h2 id="animated-text" class="text-4xl font-bold mb-8 bg-gradient-to-r from-black to-gold bg-clip-text text-transparent overflow-hidden">
+      À propos d'InnovPower
+    </h2>
+    <p class="text-lg font-light mb-8 mt-8 max-w-3xl mx-auto">
+      InnovPower est bien plus qu'une agence de développement technologique : c'est un réseau d'experts freelances qualifiés, activement sélectionnés pour répondre aux besoins précis de chaque projet. Notre approche proactive consiste à rechercher et à évaluer des talents dans des domaines variés, pour créer des équipes de développement sur mesure, parfaitement alignées avec les attentes de nos clients.
     </p>
-    <p class="text-lg font-light mb-6 max-w-3xl mx-auto">
-      De la création de sites web performants et élégants, à l’intégration de
-      solutions décentralisées comme la blockchain, nous aidons les entreprises
-      à innover et à se différencier dans un monde de plus en plus numérique.
+    <h3 class="text-3xl font-bold mb-8">
+      Une Gestion Innovante pour des Résultats Concrets
+    </h3>
+    <p class="text-lg font-light mb-8 max-w-3xl mx-auto">
+      Chez InnovPower, nous assurons la gestion complète des projets, depuis la sélection des freelances jusqu'à la livraison des solutions. Nous gérons les contrats de projet avec des termes clairs et justes, offrant ainsi aux freelances une stabilité pour chaque mission et permettant aux clients de se concentrer sur leurs objectifs sans se soucier de la logistique. Ce modèle permet une flexibilité totale, en adaptant la structure des équipes aux exigences des projets et en optimisant les ressources.
+    </p>
+    <h3 class="text-3xl font-bold mb-8">
+      Notre Mission et Vision
+    </h3>
+    <p class="text-lg font-light mb-8 max-w-3xl mx-auto">
+      Avec une vision axée sur l'innovation et l'optimisation des ressources, InnovPower se positionne comme un acteur clé, apportant flexibilité et excellence dans le secteur du développement. Nous croyons fermement en un modèle qui résout les problématiques d'emploi en offrant des opportunités aux freelances juniors comme seniors, tout en garantissant des solutions techniques de haute qualité à nos clients.
     </p>
     <a
-      href="#portfolio"
-      class="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition duration-300"
+      href="/portfolio"
+      class="bg-black text-white px-6 py-3 rounded hover:bg-white hover:text-black transition duration-300"
     >
       Voir nos projets
     </a>
   </div>
 </section>
+
+<style>
+  /* Effet de dégradé constant */
+  .bg-gradient-to-r {
+    background: linear-gradient(to right, black, gold);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+/* Animation machine à écrire pour affichage et retrait */
+.typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid gold;
+    animation: typing 4s steps(40) forwards, blink 0.75s step-end infinite;
+    margin: 0 auto;
+  }
+
+  .reverse-typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid gold;
+    animation: reverseTyping 4s steps(40) forwards, blink 0.75s step-end infinite;
+    margin: 0 auto;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes reverseTyping {
+    from { width: 100%; }
+    to { width: 0; }
+  }
+
+  @keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: gold; }
+  }
+</style>
+
+<script>
+  const animatedText = document.getElementById('animated-text');
+
+  function handleScroll() {
+    if (animatedText) {
+      const rect = animatedText.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (rect.top <= windowHeight && rect.bottom >= 0) {
+        // Si la section est visible dans la fenêtre
+        animatedText.classList.add('typing-effect');
+        animatedText.classList.remove('reverse-typing-effect');
+      } else if (rect.top > windowHeight || rect.bottom < 0) {
+        // Si la section sort de la vue
+        animatedText.classList.add('reverse-typing-effect');
+        animatedText.classList.remove('typing-effect');
+      }
+    }
+  }
+
+  // Ajoute l'écouteur d'événements de défilement
+  window.addEventListener('scroll', handleScroll);
+</script>
