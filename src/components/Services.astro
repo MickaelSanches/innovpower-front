@@ -1,175 +1,185 @@
 <section
-  id="services"
-  class="pt-60 pb-20 px-8 bg-gray-900 text-white relative overflow-hidden min-h-screen"
+    id="services"
+    class="pt-60 pb-20 px-8 bg-gray-900 text-white relative overflow-hidden min-h-screen"
 >
-  <div class="blockchain-bg absolute inset-0 pointer-events-none"></div>
+    <div class="blockchain-bg absolute inset-0 pointer-events-none"></div>
 
-  <div class="container mx-auto max-w-6xl text-center relative z-10">
+    <div class="container mx-auto max-w-6xl text-center relative z-10">
     <h2 class="text-4xl font-bold mb-12 gradient-text">Nos Services</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Carte de service : Développement Web3 -->
-      <div
+        <!-- Carte de service : Développement Web3 -->
+        <div
         class="service-card p-6 bg-gray-800 bg-opacity-70 rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
-      >
+        >
         <div class="icon-container mb-4">
-          <img
-            src="/icons/blockchain-icon.webp"
+            <img
+            src="/img/blockchain.webp"
             alt="Blockchain Icon"
-            class="w-12 h-12 mx-auto mb-4"
-          />
+            class="w-24 h-24 mx-auto mb-4"
+            />
         </div>
         <h3 class="text-2xl font-semibold mb-2">Développement Web3</h3>
         <p class="text-sm mb-4">
-          Développement de solutions blockchain et smart contracts pour des
-          applications sécurisées et décentralisées.
+            Développement de solutions blockchain et smart contracts pour des
+            applications sécurisées et décentralisées.
         </p>
         <div
-          class="text-blue-400 mt-4 hover:text-blue-600 transition duration-300 cursor-pointer"
+            class="text-blue-400 mt-4 hover:text-blue-600 transition duration-300 cursor-pointer"
         >
-          En savoir plus
+            En savoir plus
         </div>
-      </div>
+        </div>
 
-      <!-- Carte de service : Création de sites Web -->
-      <div
+        <!-- Carte de service : Création de sites Web -->
+        <div
         class="service-card p-6 bg-gray-800 bg-opacity-70 rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
-      >
+        >
         <div class="icon-container mb-4">
-          <img
-            src="/icons/web-icon.webp"
+            <img
+            src="/img/pc.webp"
             alt="Web Icon"
-            class="w-12 h-12 mx-auto mb-4"
-          />
+            class="w-24 h-24 mx-auto mb-4"
+            />
         </div>
         <h3 class="text-2xl font-semibold mb-2">Création de sites Web</h3>
         <p class="text-sm mb-4">
-          Création de sites web modernes et responsives pour une expérience
-          utilisateur optimale.
+            Création de sites web modernes et responsives pour une expérience
+            utilisateur optimale.
         </p>
         <div
-          class="text-blue-400 mt-4 hover:text-blue-600 transition duration-300 cursor-pointer"
+            class="text-blue-400 mt-4 hover:text-blue-600 transition duration-300 cursor-pointer"
         >
-          En savoir plus
+            En savoir plus
         </div>
-      </div>
+        </div>
 
-      <!-- Carte de service : Consultation & Stratégie Digitale -->
-      <div
-        class="service-card p-6 bg-gray-800 bg-opacity-70 rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
-      >
-        <div class="icon-container mb-4">
-          <img
-            src="/icons/consulting-icon.webp"
-            alt="Consulting Icon"
-            class="w-12 h-12 mx-auto mb-4"
-          />
-        </div>
-        <h3 class="text-2xl font-semibold mb-2">
-          Consultation & Stratégie Digitale
-        </h3>
-        <p class="text-sm mb-4">
-          Conseils en stratégie numérique et accompagnement pour optimiser votre
-          présence en ligne.
-        </p>
+        <!-- Carte de service : Contenu par Drone -->
         <div
-          class="text-blue-400 mt-4 hover:text-blue-600 transition duration-300 cursor-pointer"
+        class="service-card p-6 bg-gray-800 bg-opacity-70 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 relative"
         >
-          En savoir plus
+        <!-- Pastille "À venir" -->
+        <div
+            class="absolute top-4 right-4 bg-yellow-500 text-black text-xs font-semibold px-3 py-1 rounded-full shadow-lg"
+        >
+            À venir
         </div>
-      </div>
+
+        <div class="icon-container mb-4">
+            <img
+            src="/img/drone1.webp"
+            alt="Drone Icon"
+            class="w-24 h-24 mx-auto mb-4"
+            />
+        </div>
+
+        <h3 class="text-2xl font-semibold mb-2">
+            Création de contenu par Drone
+        </h3>
+
+        <p class="text-sm mb-4">
+            Service de création de contenu vidéo et photographique par drone pour
+            des perspectives innovantes et uniques.
+        </p>
+
+        <div
+            class="text-blue-400 mt-4 hover:text-blue-600 transition duration-300 cursor-pointer"
+        >
+            En savoir plus
+        </div>
+        </div>
     </div>
-  </div>
+    </div>
 </section>
 
 <style>
-  /* Effet blockchain hexagonal */
-  .blockchain-bg {
+    /* Effet blockchain hexagonal */
+    .blockchain-bg {
     background-image: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.15) 1px,
-      transparent 1px
+        circle,
+        rgba(255, 255, 255, 0.15) 1px,
+        transparent 1px
     );
     background-size: 40px 40px;
     animation: hexMove 15s linear infinite;
     opacity: 0.6;
-  }
+    }
 
-  @keyframes hexMove {
+    @keyframes hexMove {
     0% {
-      background-position: 0 0;
+        background-position: 0 0;
     }
     100% {
-      background-position: 40px 40px;
+        background-position: 40px 40px;
     }
-  }
+    }
 
-  /* Gradient du titre */
-  .gradient-text {
+    /* Gradient du titre */
+    .gradient-text {
     background: linear-gradient(to right, #ffffff, #d4af37);
     -webkit-background-clip: text;
     color: transparent;
-  }
+    }
 
-  /* Style des cartes de service */
-  .service-card {
+    /* Style des cartes de service */
+    .service-card {
     background: rgba(30, 30, 30, 0.9);
     border: 1px solid #333;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition:
-      transform 0.3s,
-      box-shadow 0.3s;
+        transform 0.3s,
+        box-shadow 0.3s;
     position: relative;
-  }
+    }
 
-  .service-card:hover {
+    .service-card:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
-  }
+    }
 
-  /* Animation d'apparition pour les cartes */
-  .service-card {
+    /* Animation d'apparition pour les cartes */
+    .service-card {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.5s ease forwards;
-  }
-
-  .service-card:nth-child(1) {
-    animation-delay: 0.2s;
-  }
-  .service-card:nth-child(2) {
-    animation-delay: 0.4s;
-  }
-  .service-card:nth-child(3) {
-    animation-delay: 0.6s;
-  }
-
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
     }
-  }
+
+    .service-card:nth-child(1) {
+    animation-delay: 0.2s;
+    }
+    .service-card:nth-child(2) {
+    animation-delay: 0.4s;
+    }
+    .service-card:nth-child(3) {
+    animation-delay: 0.6s;
+    }
+
+    @keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
 </style>
 
 <script>
   // Observer pour déclencher l'animation à l'apparition des cartes
-  const observer = new IntersectionObserver(
+    const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
+        entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const target = entry.target as HTMLElement;
-          target.style.opacity = "1";
-          target.style.transform = "translateY(0)";
+            const target = entry.target as HTMLElement;
+            target.style.opacity = "1";
+            target.style.transform = "translateY(0)";
         }
-      });
+        });
     },
     { threshold: 0.2 }
-  );
+    );
 
-  document
+    document
     .querySelectorAll(".service-card")
     .forEach((card) => observer.observe(card));
 </script>
