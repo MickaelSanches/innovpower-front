@@ -1,0 +1,91 @@
+<section class="py-20 px-8 bg-white text-black">
+    <div class="container mx-auto max-w-4xl text-center">
+    <h2 id="founder-title" class="text-4xl font-bold mb-8">Mot du Fondateur</h2>
+    <div class="flex justify-center items-center mb-8">
+        <img
+        src="/img/me.webp"
+        alt="Photo de Mickael"
+        class="w-64 h-64 rounded-full shadow-lg"
+        />
+    </div>
+    <p class="text-lg font-light mb-8 max-w-3xl mx-auto">
+        Bienvenue chez InnovPower.
+    </p>
+    <p class="text-lg font-light mb-6 max-w-3xl mx-auto leading-relaxed">
+        Je suis Mickael, passionné de technologie et de développement, avec un
+        parcours marqué par une solide expérience en gestion de projets et en
+        commerce. J’ai fondé InnovPower avec l’ambition de créer une structure
+        flexible et innovante, capable de rassembler des talents d’exception pour
+        répondre aux défis technologiques de nos clients.
+    </p>
+    <p class="text-lg font-light mb-6 max-w-3xl mx-auto leading-relaxed">
+        InnovPower est né de l’idée que la technologie doit être accessible et
+        adaptable, tout en offrant des solutions de qualité. En réunissant des
+        freelances qualifiés, je souhaite offrir aux entreprises une expertise sur
+        mesure et une gestion simplifiée, tout en donnant aux talents indépendants
+        l’opportunité de s’épanouir dans des projets motivants et enrichissants.
+    </p>
+    <p class="text-lg font-light mb-8 max-w-3xl mx-auto leading-relaxed">
+        Mon engagement pour InnovPower est de maintenir une exigence élevée, un
+        esprit collaboratif et une vision tournée vers l’avenir, où chaque projet
+        est une chance d’innover et de dépasser les attentes. Merci de faire
+        partie de cette aventure.
+    </p>
+    <p class="text-lg font-light mb-12 max-w-3xl mx-auto leading-relaxed">
+        À bientôt pour de belles collaborations !
+    </p>
+    <div class="flex justify-center items-center mt-8">
+        <img
+        id="signature"
+        src="/img/signature.webp"
+        alt="Signature de Mickael"
+        class="w-64 h-auto opacity-0 transition-opacity duration-1000 ease-out"
+        />
+    </div>
+    </div>
+</section>
+
+<style>
+    /* Style pour une touche élégante */
+    h2 {
+    color: #333;
+    background: linear-gradient(to right, black, #d4af37);
+    -webkit-background-clip: text;
+    color: transparent;
+    }
+
+    /* Animation d'apparition au scroll */
+    .fadeInOnScroll {
+    opacity: 1 !important;
+    }
+
+    /* Effet de fade-in */
+    #signature {
+    transform: translateY(20px);
+    }
+</style>
+
+<script>
+     // Fonction pour ajouter l'effet au scroll
+    function handleScroll() {
+    const title = document.getElementById("founder-title");
+    const signature = document.getElementById("signature");
+
+    if (title && signature) {
+        const titlePosition = title.getBoundingClientRect().top;
+        const signaturePosition = signature.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+      // Appliquer l'effet fade-in lorsque le titre et la signature sont visibles
+        if (titlePosition < windowHeight && titlePosition > 0) {
+        title.classList.add("fadeInOnScroll");
+        }
+        if (signaturePosition < windowHeight && signaturePosition > 0) {
+        signature.classList.add("fadeInOnScroll");
+        }
+    }
+    }
+
+    // Écouteur d'événement pour le scroll
+    window.addEventListener("scroll", handleScroll);
+</script>
