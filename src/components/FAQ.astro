@@ -1,0 +1,111 @@
+<section id="faq" class="pt-60 py-20 px-6 md:px-16 bg-gray-900 text-white">
+    <div class="container mx-auto max-w-6xl">
+      <!-- Titre principal -->
+      <h2 class="text-4xl font-bold mb-12 text-center gradient-text">FAQ - Questions Fréquemment Posées</h2>
+  
+      <!-- FAQ Items -->
+      <div class="space-y-8">
+        <!-- Question 1 -->
+        <div class="faq-item border-b border-gray-700 pb-4">
+          <h3 class="text-xl font-semibold flex justify-between items-center cursor-pointer">
+            Quelles sont les prestations offertes par InnovPower ?
+            <span class="faq-toggle text-gray-400">+</span>
+          </h3>
+          <div class="faq-content hidden mt-4 text-lg text-gray-300 leading-relaxed">
+            InnovPower propose des services variés tels que le développement Web3, la création de sites web modernes, et bientôt des services de contenu vidéo par drone.
+          </div>
+        </div>
+  
+        <!-- Question 2 -->
+        <div class="faq-item border-b border-gray-700 pb-4">
+          <h3 class="text-xl font-semibold flex justify-between items-center cursor-pointer">
+            Quels sont les modes de paiement acceptés ?
+            <span class="faq-toggle text-gray-400">+</span>
+          </h3>
+          <div class="faq-content hidden mt-4 text-lg text-gray-300 leading-relaxed">
+            Nous acceptons les paiements par virement bancaire ainsi qu’en cryptomonnaies telles que Bitcoin, StableCoins, et Solana.
+          </div>
+        </div>
+  
+        <!-- Question 3 -->
+        <div class="faq-item border-b border-gray-700 pb-4">
+          <h3 class="text-xl font-semibold flex justify-between items-center cursor-pointer">
+            Puis-je modifier les livrables après livraison ?
+            <span class="faq-toggle text-gray-400">+</span>
+          </h3>
+          <div class="faq-content hidden mt-4 text-lg text-gray-300 leading-relaxed">
+            Oui, après paiement intégral, vous obtenez un droit exclusif sur les livrables, vous permettant de les modifier. Toutefois, leur reproduction ou revente sans autorisation est interdite.
+          </div>
+        </div>
+  
+        <!-- Question 4 -->
+        <div class="faq-item border-b border-gray-700 pb-4">
+          <h3 class="text-xl font-semibold flex justify-between items-center cursor-pointer">
+            InnovPower garantit-il les performances SEO des sites livrés ?
+            <span class="faq-toggle text-gray-400">+</span>
+          </h3>
+          <div class="faq-content hidden mt-4 text-lg text-gray-300 leading-relaxed">
+            Nous optimisons nos livrables pour le SEO, mais les performances finales dépendent de nombreux facteurs externes, comme les mots-clés utilisés et la stratégie de contenu du client.
+          </div>
+        </div>
+  
+        <!-- Question 5 -->
+        <div class="faq-item border-b border-gray-700 pb-4">
+          <h3 class="text-xl font-semibold flex justify-between items-center cursor-pointer">
+            Que faire en cas de problème technique après livraison ?
+            <span class="faq-toggle text-gray-400">+</span>
+          </h3>
+          <div class="faq-content hidden mt-4 text-lg text-gray-300 leading-relaxed">
+            Une garantie de 30 jours est offerte pour corriger les bugs ou dysfonctionnements mineurs. Pour tout problème technique lié à des éléments tiers, une intervention facturée peut être proposée.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* Gradient du titre */
+    .gradient-text {
+      background: linear-gradient(to right, #ffffff, #d4af37);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  
+    /* Styles de la FAQ */
+    .faq-item h3:hover {
+      color: #d4af37;
+    }
+  
+    .faq-content {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+  
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  
+  <script>
+    // Gestion des interactions FAQ
+    const faqItems = document.querySelectorAll(".faq-item");
+  
+    faqItems.forEach((item) => {
+      const toggle = item.querySelector(".faq-toggle");
+      const content = item.querySelector(".faq-content");
+  
+      if (toggle && content) { // Vérification si les éléments existent
+        item.addEventListener("click", () => {
+          const isVisible = !content.classList.contains("hidden");
+          content.classList.toggle("hidden", isVisible);
+          toggle.textContent = isVisible ? "+" : "-";
+        });
+      }
+    });
+  </script>  
