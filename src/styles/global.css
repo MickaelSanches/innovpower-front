@@ -120,3 +120,15 @@ footer a {
 footer a:hover {
   color: #FFD700;
 }
+
+
+a.inline-block {
+  display: inline-block;
+  margin-left: 1rem; /* Ajuste selon le design */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+a.inline-block:hover {
+  transform: translateX(-5px); /* Légère animation au survol */
+}
+
