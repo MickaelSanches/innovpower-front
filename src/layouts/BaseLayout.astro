@@ -9,77 +9,101 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title || "InnovPower - Solutions Web3 et digitales"}</title>
     <meta
-		name="description"
-		content={description ||
+        name="description"
+        content={description ||
         "Découvrez InnovPower, créateur de solutions Web3 et digitales, avec des services innovants pour votre entreprise."}
     />
 
+    <!-- Favicon -->
+    <link rel="icon" href="/img/favicon.webp" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
     <!-- Open Graph -->
     <meta
-		property="og:title"
-		content={title || "InnovPower - Solutions Web3 et digitales"}
+        property="og:title"
+        content={title || "InnovPower - Solutions Web3 et digitales"}
     />
     <meta
-		property="og:description"
-		content={description ||
+        property="og:description"
+        content={description ||
         "Découvrez InnovPower, créateur de solutions Web3 et digitales."}
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://innovpower.com/" />
     <meta
-		property="og:image"
-		content="https://innovpower.com/images/cover.jpg"
+        property="og:image"
+        content="https://innovpower.com/images/cover.jpg"
     />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta
-		name="twitter:title"
-		content={title || "InnovPower - Solutions Web3 et digitales"}
+        name="twitter:title"
+        content={title || "InnovPower - Solutions Web3 et digitales"}
     />
     <meta
-		name="twitter:description"
-		content={description ||
+        name="twitter:description"
+        content={description ||
         "Découvrez InnovPower, créateur de solutions Web3 et digitales."}
     />
     <meta
-		name="twitter:image"
-		content="https://innovpower.com/images/cover.jpg"
+        name="twitter:image"
+        content="https://innovpower.com/images/cover.jpg"
     />
 
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/styles/global.css">
-	</head>
-	<body>
-    <main class="min-h-screen">
-		<slot />
-    </main>
-    <!-- Bouton Back to Top -->
-<button id="back-to-top" class="fixed bottom-6 right-6 bg-gradient-to-br from-blue-600 to-purple-600 text-white p-3 rounded-full shadow-lg hidden z-50 hover:from-purple-600 hover:to-blue-600 transition duration-300">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 mx-auto">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-  </svg>
-</button>
 
-<script>
-const backToTopButton = document.getElementById('back-to-top');
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="/src/styles/global.css">
 
-if (backToTopButton) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      backToTopButton.style.display = 'block';
-    } else {
-      backToTopButton.style.display = 'none';
+    <!-- Structured Data (SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "InnovPower",
+      "url": "https://innovpower.com",
+      "logo": "https://innovpower.com/images/logo.png",
+      "sameAs": [
+        "https://x.com/InnovPower",
+        "https://instagram.com/InnovPower"
+      ]
     }
-  });
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <main class="min-h-screen">
+        <slot />
+    </main>
 
-  backToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  });
-}
-</script>
-  	</body>
+    <!-- Bouton Back to Top -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-gradient-to-br from-blue-600 to-purple-600 text-white p-3 rounded-full shadow-lg hidden z-50 hover:from-purple-600 hover:to-blue-600 transition duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 mx-auto">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
+    <!-- Script Back to Top -->
+    <script>
+        const backToTopButton = document.getElementById('back-to-top');
+        if (backToTopButton) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth',
+                });
+            });
+        }
+    </script>
+</body>
 </html>
